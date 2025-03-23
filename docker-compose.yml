@@ -1,0 +1,29 @@
+version: "3.9"
+
+services:
+
+  mcp_crm_connector:
+    build: ./mcp_crm_connector
+    ports:
+      - "8001:8000"
+
+  mcp_claude_email_agent:
+    build: ./mcp_claude_email_agent
+    ports:
+      - "8002:8000"
+
+  mcp_scheduler:
+    build: ./mcp_scheduler
+    ports:
+      - "8003:8000"
+
+  mcp_core_agent:
+    build: ./mcp_core_agent
+    ports:
+      - "8000:8000"
+    depends_on:
+      - mcp_crm_connector
+      - mcp_claude_email_agent
+      - mcp_scheduler
+
+
