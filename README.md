@@ -66,3 +66,37 @@ Other LLMs (OpenAI, Azure OpenAI, etc.)
 
 Or any custom prompt engine
 
+✅ Step 4: Create the mcp_scheduler MCP Server
+
+🎯 What We’re Doing in This Step:
+
+We’re building the third MCP server:
+➡️ mcp_scheduler — it simulates booking meetings with leads who responded positively.
+
+This server will:
+
+Be a FastAPI microservice
+
+Expose one POST endpoint: /schedule
+
+Accept lead details (name, email)
+
+Return a simulated meeting confirmation
+
+Later, this can be upgraded to integrate with Google Calendar or Outlook via API
+
+✅ Step 5: Create the mcp_core_agent MCP Server (The Orchestrator)
+
+🎯 What We’re Doing in This Step:
+We’re building the MCP Core Agent, which acts as the brain of your Virtual Sales Assistant.
+
+It will:
+
+Call the CRM connector to get leads
+
+Send each lead to the email generator
+
+Schedule a meeting if the lead's reply is "Yes"
+
+This is where the agentic workflow logic lives — it knows what to do, in what order, and when.
+
